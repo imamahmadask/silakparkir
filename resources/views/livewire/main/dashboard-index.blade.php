@@ -1,4 +1,4 @@
-<x-app-layout>
+<div>
     <div class="page-heading">
         <h3>Dashboard Utama</h3>
     </div>
@@ -272,4 +272,4 @@
             </div>
         </section>
     </div>
-</x-app-layout>
+</div>

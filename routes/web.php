@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Main\DashboardIndex as MainDashboardIndex;
+use App\Livewire\Parkir\Dashboard\DashboardIndex as ParkirDashboardIndex;
+use App\Livewire\Pelabuhan\Dashboard\DashboardIndex as PelabuhanDashboardIndex;
+use App\Livewire\Terminal\Dashboard\DashboardIndex as TerminalDashboardIndex;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,3 +19,11 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/admin/dashboard', MainDashboardIndex::class)->name('main.dashboard');
+
+Route::get('/admin/parkir/dashboard', ParkirDashboardIndex::class)->name('parkir.dashboard');
+
+Route::get('/admin/terminal/dashboard', TerminalDashboardIndex::class)->name('terminal.dashboard');
+
+Route::get('/admin/pelabuhan/dashboard', PelabuhanDashboardIndex::class)->name('pelabuhan.dashboard');
