@@ -46,28 +46,35 @@
                 <li class="sidebar-title">Parkir</li>
 
                 <li class="sidebar-item {{ Request::routeIs('parkir.dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('parkir.dashboard') }}" class='sidebar-link'>
+                    <a href="{{ route('parkir.dashboard') }}" wire:navigate class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 
-                <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item {{ Request::routeIs('parkir.titik.*') ? 'active' : '' }}">
+                    <a href="{{ route('parkir.titik.index') }}" class='sidebar-link'>
                         <i class="bi bi-map-fill"></i>
                         <span>Titik Parkir</span>
                     </a>
                 </li>                
 
-                <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item {{ Request::routeIs('parkir.jukir.*') ? 'active' : '' }}">
+                    <a href="{{ route('parkir.jukir.index') }}" class='sidebar-link'>
                         <i class="bi bi-person-fill"></i>
                         <span>Juru Parkir</span>
                     </a>
                 </li>    
+                
+                <li class="sidebar-item {{ Request::routeIs('parkir.korlap.*') ? 'active' : '' }}">
+                    <a href="{{ route('parkir.korlap.index') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Korlap</span>
+                    </a>
+                </li>    
 
-                <li class="sidebar-item ">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item {{ Request::routeIs('parkir.nontunai.*') ? 'active' : '' }}">
+                    <a href="{{ route('parkir.nontunai.index') }}" class='sidebar-link'>
                         <i class="bi bi-qr-code"></i>
                         <span>Non Tunai</span>
                     </a>
