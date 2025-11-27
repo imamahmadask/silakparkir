@@ -16,7 +16,7 @@ class Titik extends Model
         'sisi',
         'panjang_luas',
         'waktu_pelayanan',
-        'jam_buka',
+        'hari_buka',
         'jenis',
         'kategori',
         'foto',

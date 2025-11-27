@@ -26,7 +26,7 @@
                     </svg> --}}
                     <div class="form-check form-switch fs-6">
                         <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
-                        <label class="form-check-label"></label>
+                        <label for="toggle-dark" class="form-check-label"></label>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         aria-hidden="true" role="img" class="iconify iconify--mdi" width="20" height="20"
@@ -46,7 +46,7 @@
                 <li class="sidebar-title">Parkir</li>
 
                 <li class="sidebar-item {{ Request::routeIs('parkir.dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('parkir.dashboard') }}" wire:navigate class='sidebar-link'>
+                    <a href="{{ route('parkir.dashboard') }}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>

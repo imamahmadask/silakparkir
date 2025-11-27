@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('sisi')->nullable();
             $table->string('panjang_luas')->nullable();
             $table->string('waktu_pelayanan')->nullable();
-            $table->string('jam_buka')->nullable();
+            $table->string('hari_buka')->nullable();
             $table->string('jenis')->nullable();
             $table->string('kategori')->nullable();
             $table->string('foto')->nullable();

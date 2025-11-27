@@ -10,7 +10,8 @@
                     <div class="card-header">
                         <h4>Data Korlap</h4>
                         
-                        <button class="btn btn-primary mt-4">
+                        <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal"
+                            data-bs-target="#AddKorlapModal">
                             <i class="bi bi-plus"></i> Tambah Korlap
                         </button>
                     </div>
@@ -29,88 +30,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="col-auto">
-                                            Abdullah
-                                        </td>
-                                        <td class="col-auto">
-                                            527001
-                                        </td>
-                                        <td class="col-auto">
-                                            0819999
-                                        </td>
-                                        <td class="col-auto">
-                                            40
-                                        </td>
-                                        <td class="col-auto">
-                                            50
-                                        </td>
-                                        <td class="col-auto">
-                                            <div class="d-flex align-items-center">
-                                                <div class="badge bg-success me-2">ASN</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary me-2">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Delete</button>
-                                            
-                                        </td>
-                                    </tr>                                                                                                                         
-                                    <tr>
-                                        <td class="col-auto">
-                                            Muhammad
-                                        </td>
-                                        <td class="col-auto">
-                                            527001
-                                        </td>
-                                        <td class="col-auto">
-                                            0819999
-                                        </td>
-                                        <td class="col-auto">
-                                            40
-                                        </td>
-                                        <td class="col-auto">
-                                            50
-                                        </td>
-                                        <td class="col-auto">
-                                            <div class="d-flex align-items-center">
-                                                <div class="badge bg-success me-2">ASN</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary me-2">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Delete</button>
-                                            
-                                        </td>
-                                    </tr>                                                                                                                         
-                                    <tr>
-                                        <td class="col-auto">
-                                            Ali
-                                        </td>
-                                        <td class="col-auto">
-                                            527001
-                                        </td>
-                                        <td class="col-auto">
-                                            0819999
-                                        </td>
-                                        <td class="col-auto">
-                                            40
-                                        </td>
-                                        <td class="col-auto">
-                                            50
-                                        </td>
-                                        <td class="col-auto">
-                                            <div class="d-flex align-items-center">
-                                                <div class="badge bg-success me-2">ASN</div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-sm btn-primary me-2">Edit</button>
-                                            <button class="btn btn-sm btn-danger">Delete</button>
-                                            
-                                        </td>
-                                    </tr>                                                                                                                         
-                                                                                                                                                           
+                                    @foreach ($korlaps as $korlap)
+                                        <tr>
+                                            <td class="col-auto">
+                                                {{ $korlap->nama }}
+                                            </td>
+                                            <td class="col-auto">
+                                                {{ $korlap->nik }}
+                                            </td>
+                                            <td class="col-auto">
+                                                {{ $korlap->no_hp }}
+                                            </td>
+                                            <td class="col-auto">
+                                                20
+                                            </td>
+                                            <td class="col-auto">
+                                                50
+                                            </td>
+                                            <td class="col-auto">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="badge @if($korlap->status == 'ASN') bg-success @else bg-info @endif me-2">{{ $korlap->status }}</div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary me-2" wire:click="$dispatch('korlap-edit', { id: {{ $korlap->id }} })"
+                                                    type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#editKorlapModal">Edit</button>
+                                                <button class="btn btn-sm btn-danger" wire:click="$dispatch('delete-korlap', { id: {{ $korlap->id }} })" 
+                                                    wire:confirm="Are you sure you want to delete this korlap?">Delete</button>                                                
+                                            </td>
+                                        </tr>       
+                                    @endforeach                                                                                                                                                                                                                                                                          
                                 </tbody>
                             </table>
                         </div>
@@ -119,4 +69,13 @@
             </div>            
         </section>
     </div>
+
+    @teleport('body')
+        <!-- Create Regustrasi Modal -->
+        @livewire('parkir.korlap.korlap-create')
+    @endteleport
+    @teleport('body')
+        <!-- Edit Regustrasi Modal -->
+        @livewire('parkir.korlap.korlap-edit')
+    @endteleport
 </div>
